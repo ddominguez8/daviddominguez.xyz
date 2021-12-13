@@ -1,0 +1,32 @@
+This project started as an idea from Shawn Duong, a very knowledgeable friend of mine who is currently attending UC Merced, and is also one of the leaders many look up to at IrisSec, a nationwide computer hacking club. More information on IrisSec can be found at their public facing website, [here.](https://irissec.xyz/) Our organizations (Association for Computing Machinery and Solar Energy Association) collaborated together to make a challenge for students so that they could get first-hand exposure to Wi-Fi hacking, Web Application Exploitation, and Maintaining Access. This challenge was then presented to a group of students at UC Merced during HackMerced's Local Learn Day, which took place on November 13th, 2021. I'll briefly go through each of the sections, and conclude this with a reflection of what I learned at the end of it all.
+
+The idea was that we would create a solar panel array that would adjust itself in accordance to the angle of the sun at a given time, and date in the year, to receive the most optimal amount of sunlight, and subsequently, absorb the most optimal amount of power. The web server attached to it would be able to query any elevation and azimuth angles, mainly for historical purposes. The Raspberry Pi attached to it would also be able to automatically adjust the angles of the solar panels in accordance to these optimal angles.
+
+## Wi-Fi Hacking
+In all honesty, this was mostly Shawn's doing. He's very precise and loves to learn more about networks, so he took the lead on this. I'll put pieces together for the sake of completeness. The way I understand it, is that WEP's main weakness lies in its inability to change keys for every packet sent. In addition, WEP only uses hexadecimal characters (in other words, A-F, 0-9). Knowing this, if a hacker were to stay on the network long enough, they could gather enough packets to decrypt the encryption key. With huge advancements in computational power occurring on a yearly basis, WEP of course was deprecated, however it still was a strong learning point for the students. 
+
+So for the event, we had the students get into groups, and one person would boot into Live Kali USB's we had formatted previously. One person would be the driver, with the rest of the group as support. We then had the students use **aircrack-ng** so that they could eventually set themselves up for an ARP relay attack. Afterwards, it's just waiting for enough traffic to accumulate so that we could obtain the key, then scanning the network to see what ports are open to investigation.
+
+## Web Application Exploitation
+As directly from the slides, the functionality of the web server: 
+
+> Our web server has the ability to access historical data from 2020 regarding the optimal elevation and azimuth angles, along with the date and time. All users have the ability to query any date/time starting from October 24th, 2020.
+
+The way that our web application was set up, we had a *logger.py* file which would query our *tracker.py* to find the latest information, then append the information into a *data.txt* onto the Raspberry Pi. And when we wanted to query for a certain date/time, all the server was doing was formatting a grep command as follows: 
+
+> grep ${userinput} data.txt
+
+Since this user input was not being sanitized at all, they found that once they figured out what the full format of the command was, they could simply comment out the rest of the line, and have a semicolon separating the command, to execute their own command. In other words, they found out how to successfully perform a Direct Command Injection. 
+
+After they found out how to execute their own commands, they were able to open a shell using **netcat**, with the shell serving on a specific port, specified by the hacker.
+
+## Maintaing Access 
+Now that they had access and were able to connect to the shell service running on their specified port, they could continue maintaining their access by uploading their SSH key. This then allowed the hackers to bypass the password the Raspberry Pi had when someone tried to ssh into it, effectively giving them root access. 
+
+Comical consequences that came from giving them root access: One group in particular was very keen on poking around, leaving notes in various places, and going so far as to execute some Python scripts we had left on the Pi. Unfortunately, we were very limited in how we were actually able to construct our solar panel array, so we couldn't fully display the functionality of the optimal angle adjustment to the students, however we had left the scripts behind. These were the scripts that the group executed, and so while I was out and about helping others catch up, this group executed the script, and since the servos couldn't handle the load, the array toppled over. I tried adjusting it back manually very slowly, however once I gave too much pressure, one of the horns on the servos broke. We were moreso proud and laughing comically, as this was part of the learning process, and we did specifically say throughout the event: 
+> Break this as much as you can!
+
+## Reflection
+I had personally learned an astronomical amount from this event. For one, soldering was something I had always seen done on YouTube by Louis Rossmann, however actually doing it was very satisfying. Another thing I learned was Flask, I had personally never used it before, but working on it with Shawn was very helpful and beneficial to my learning, even when debugging a particular issue, which was not retrieving the command correctly. Another issue we had with it was that it could not handle spaces, but we eventually fixed it. I also learned about api routing throughout the web server, since I had not worked too much with web servers before. I seemed somewhat ashamed, but after a while I got the hang of it, and once I received a similar project in another class, (about a week later) it was a piece of cake. 
+
+Finally, seeing the students all have fun, and even seeing **all** of them stay 30 minutes over our already long **2 hour timeslot**, was so satisfying. As far as I have been at UC Merced, it has been pretty hard to come across people interested in any sort of cyber security, but seeing everyone having so much fun and so *determined* to solve the challenge was something super rewarding, and will definitely hold this event near and due to my heart for the future. 
