@@ -1,0 +1,11 @@
+# For documentation on this file, see:
+# https://github.com/riggraz/no-style-please#customize-the-menu
+
+entries:
+  - title: info
+    entries:
+      - title: yo, nice to meet ya.
+      - title: github
+        url: https://github.com/ddominguez8
+      - title: daviddominguez17@protonmail.com
+      - title: reader beware, my personal site has been completely redone. give me a couple of days as I fix this up during finals szn. 
