@@ -9,3 +9,9 @@ entries:
         url: https://github.com/ddominguez8
       - title: daviddominguez17@protonmail.com
       - title: reader beware, my personal site has been completely redone. give me a couple of days as I fix this up during finals szn. 
+  
+  - title: recent projects I've worked on 
+    post_list: 
+      limit: 5
+      show_more: true
+      show_more_text: See older projects...
