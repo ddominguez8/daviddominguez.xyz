@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "github-pages", group: :jekyll_plugins
 gem "nokogiri", ">= 1.13.2"
+gem "commonmarker", ">=0.23.4"
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
