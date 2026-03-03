@@ -2,7 +2,8 @@ title: david dominguez 😺
 # url: "https://daviddominguez.xyz" # the base hostname & protocol for your site
 # host: 0.0.0.0
 #########################
-theme: jekyll-bear-theme
+# theme: jekyll-bear-theme
+remote_theme: janraasch/jekyll-bear-theme
 # more settings
 
 plugins:
