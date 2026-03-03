@@ -1,3 +1,11 @@
+---
+layout: post
+title: Hack the Power
+date: 2021-11-13
+tags: [learnings]
+permalink: /blog/hackthepower
+---
+
 This project started as an idea from Shawn Duong, a very knowledgeable friend of mine who is currently attending UC Merced, and is also one of the leaders many look up to at IrisSec, a nationwide computer hacking club. More information on IrisSec can be found at their public facing website, [here.](https://irissec.xyz/) Our organizations (Association for Computing Machinery and Solar Energy Association) collaborated together to make a challenge for students so that they could get first-hand exposure to Wi-Fi hacking, Web Application Exploitation, and Maintaining Access. This challenge was then presented to a group of students at UC Merced during HackMerced's Local Learn Day, which took place on November 13th, 2021. I'll briefly go through each of the sections, and conclude this with a reflection of what I learned at the end of it all.
 
 The idea was that we would create a solar panel array that would adjust itself in accordance to the angle of the sun at a given time, and date in the year, to receive the most optimal amount of sunlight, and subsequently, absorb the most optimal amount of power. The web server attached to it would be able to query any elevation and azimuth angles, mainly for historical purposes. The Raspberry Pi attached to it would also be able to automatically adjust the angles of the solar panels in accordance to these optimal angles.
