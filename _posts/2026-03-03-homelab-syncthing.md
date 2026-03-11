@@ -108,3 +108,8 @@ The key areas you'll want to take a note of if you're trying it yourself:
 
 ### How can you use it? 
 Syncthing is an [open source application available](https://syncthing.net/) for Linux, Windows, Android, and iOS. I would encourage you try it out with Obsidian, but you can truly try it with any file/directories you want to sync across multiple devices. 
+
+### What Syncthing is NOT
+
+- Syncthing is not a 'cloud' solution or provider for your files. It _synchronizes_ your files across multiple devices, including deletions.
+- Syncthing is not perfect, and just like many other solutions, they have their issues. Use it with extreme caution, and I would not encourage it for enterprise use.
