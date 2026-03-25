@@ -46,7 +46,7 @@ On a day-to-day stance, my general use case for my gaming PC vs. my Ally has bee
 - If I plan on playing multi player games or games that require me to run Windows: __use the gaming PC__
 
 
-### Major Consideratio Before Using Bazzite
+### Major Consideration Before Using Bazzite
 
 Before switching off the native Ally Windows OS, _do your due diligence and check your frequently played games on [ProtonDB](https://www.protondb.com/)_. ProtonDB is the place to check to see how easy your specific game will be to play once switching to a Linux based OS, based on the reviews of other players that also play the game on a Linux based OS. There is a rating system that you'll want to review when looking up your game on ProtonDB. The rating's descriptions can be found by hovering over the rating itself on ProtonDB, but I've also left them below for your sake:
 - Native: Runs natively on Linux.
